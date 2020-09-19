@@ -1,13 +1,26 @@
 <heroes>
   <h2>{ hero.name.toUpperCase() } Details</h2>
   <div><span>id: </span>{ hero.id }</div>
-  <div><span>name: </span>{ hero.name }</div>
+  <div>
+    <label>name:
+      <input
+        type="text"
+        value={ hero.name }
+        placeholder="name"
+        oninput={ handleInput }
+      />
+    </label>
+  </div>
 
   <script>
     export default {
       hero: {
         id: 1,
         name: 'Windstorm'
+      },
+      handleInput(e) {
+        this.hero.name = e.target.value;
+        this.update();
       }
     }
   </script>
