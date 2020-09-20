@@ -3,6 +3,7 @@
   <ul class="heroes">
     <li
       each={ hero in heroes }
+      class={ hero === selectedHero && 'selected' }
       onclick={ handleSelect}
       data={ hero }
     >
