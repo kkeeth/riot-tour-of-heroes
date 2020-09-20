@@ -1,7 +1,11 @@
 <heroes>
   <h2>My Heroes</h2>
   <ul class="heroes">
-    <li each={ hero in heroes }>
+    <li
+      each={ hero in heroes }
+      onclick={ handleSelect}
+      data={ hero }
+    >
       <span class="badge">{ hero.id }</span> { hero.name }
     </li>
   </ul>
@@ -23,14 +27,19 @@
     import { HEROES } from '../../../mock-heroes';
 
     export default {
-      hero: {
-        id: 1,
-        name: 'Windstorm'
-      },
+       hero: {
+         id: 1,
+         name: 'Windstorm'
+       },
       heroes: HEROES,
+      selectedHero: {},
       handleInput(e) {
         this.hero.name = e.target.value;
         this.update();
+      },
+      handleSelect(e) {
+        this.selectedHero = e.target.data
+        this.update()
       }
     }
   </script>
