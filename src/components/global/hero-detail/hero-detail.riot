@@ -1,0 +1,25 @@
+<hero-detail>
+  <div if={ hero }>
+    <h2>{ hero.name.toUpperCase() } Details</h2>
+    <div><span>id: </span>{ hero.id }</div>
+    <div>
+      <label>name:
+        <input
+          type="text"
+          value={ hero.name }
+          placeholder="name"
+          oninput={ props.handleInput }
+        />
+      </label>
+    </div>
+  </div>
+
+  <script>
+    export default {
+      hero: null,
+      onBeforeUpdate(props) {
+        this.hero = props.hero;
+      }
+    }
+  </script>
+</hero-detail>

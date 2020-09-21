@@ -4,32 +4,22 @@
     <li
       each={ hero in heroes }
       class={ hero === selectedHero && 'selected' }
-      onclick={ handleSelect}
+      onclick={ handleSelect }
       data={ hero }
     >
       <span class="badge">{ hero.id }</span> { hero.name }
     </li>
   </ul>
-
-  <div if={ selectedHero }>
-    <h2>{ selectedHero.name.toUpperCase() } Details</h2>
-    <div><span>id: </span>{ selectedHero.id }</div>
-    <div>
-      <label>name:
-        <input
-          type="text"
-          value={ selectedHero.name }
-          placeholder="name"
-          oninput={ handleInput }
-        />
-      </label>
-    </div>
-  </div>
+  <hero-detail hero={ selectedHero } handle-input={ handleInput } />
 
   <script>
     import { HEROES } from '../../../mock-heroes';
+    import HeroDetail from '../hero-detail/hero-detail.riot';
 
     export default {
+      components: {
+        HeroDetail
+      },
       heroes: HEROES,
       selectedHero: null,
       handleInput(e) {
