@@ -13,15 +13,17 @@
   <hero-detail hero={ selectedHero } handle-input={ handleInput } />
 
   <script>
-    import { HEROES } from '../../../mock-heroes';
+    import { getHeroes } from '../../../services/heroService';
     import HeroDetail from '../hero-detail/hero-detail.riot';
 
     export default {
       components: {
         HeroDetail
       },
-      heroes: HEROES,
       selectedHero: null,
+      onBeforeMount() {
+        this.heroes = getHeroes();
+      },
       handleInput(e) {
         this.selectedHero.name = e.target.value;
         this.update();
