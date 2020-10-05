@@ -20,9 +20,13 @@
       components: {
         HeroDetail
       },
+      heroes: [],
       selectedHero: null,
       onBeforeMount() {
-        this.heroes = getHeroes();
+        getHeroes().then((res) => {
+          this.heroes = res
+          this.update()
+        })
       },
       handleInput(e) {
         this.selectedHero.name = e.target.value;
