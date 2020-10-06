@@ -1,5 +1,6 @@
 <heroes>
   <h2>My Heroes</h2>
+  <div if={ heroes.length === 0 }>now loading...</div>
   <ul class="heroes">
     <li
       each={ hero in heroes }
