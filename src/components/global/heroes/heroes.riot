@@ -12,14 +12,17 @@
     </li>
   </ul>
   <hero-detail hero={ selectedHero } handle-input={ handleInput } />
+  <messages />
 
   <script>
     import { getHeroes } from '../../../services/heroService';
     import HeroDetail from '../hero-detail/hero-detail.riot';
+    import Messages from '../messages/messages.riot';
 
     export default {
       components: {
-        HeroDetail
+        HeroDetail,
+        Messages
       },
       heroes: [],
       selectedHero: null,
